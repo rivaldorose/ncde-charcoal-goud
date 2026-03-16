@@ -1,6 +1,11 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Salderingsregeling — NCDE",
+  description:
+    "Wat verandert er aan de salderingsregeling? NCDE legt uit wat dit betekent voor uw zonnepanelen en energierekening.",
+};
 
 export default function SalderingsregelingPage() {
   return (

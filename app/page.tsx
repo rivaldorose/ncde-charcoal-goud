@@ -18,6 +18,7 @@ export default function HomePage() {
           src="/hero-home.jpg"
           alt="Nederlandse woning met zonnepanelen"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

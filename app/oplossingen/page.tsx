@@ -54,6 +54,7 @@ export default function OplossingenPage() {
               src="/instalateru.jpg"
               alt="Installateur plaatst zonnepanelen"
               fill
+              sizes="100vw"
               className="object-cover"
               priority
             />

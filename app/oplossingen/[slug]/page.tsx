@@ -195,6 +195,7 @@ export default async function OplossingSinglePage({
           src={article.image}
           alt={article.title}
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />

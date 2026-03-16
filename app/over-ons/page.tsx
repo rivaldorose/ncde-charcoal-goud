@@ -17,6 +17,7 @@ export default function OverOnsPage() {
           src="/instalateru.jpg"
           alt="Installateur plaatst zonnepanelen op dak"
           fill
+          sizes="100vw"
           className="object-cover"
           priority
         />
