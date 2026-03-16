@@ -1,13 +1,15 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const navItems = [
   { href: "/salderingsregeling", label: "Salderingsregeling" },
   { href: "/noodpakket", label: "Noodvoorziening" },
   { href: "/oplossingen", label: "Oplossingen" },
-  { href: "/partners", label: "Over ons" },
+  { href: "/regelingen", label: "Regelingen" },
+  { href: "/over-ons", label: "Over ons" },
 ];
 
 export default function Header() {
@@ -17,15 +19,15 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-background-light/90 backdrop-blur-md border-b border-charcoal/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="bg-charcoal p-1.5 rounded">
-            <span className="material-symbols-outlined text-accent-gold text-2xl">
-              account_balance
-            </span>
-          </div>
-          <span className="text-xl font-extrabold tracking-tighter text-charcoal uppercase">
-            NCDE
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo/Group 39881.png"
+            alt="NCDE — Nederlands Collectief Duurzame Energie"
+            width={140}
+            height={48}
+            className="h-12 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}
@@ -44,7 +46,7 @@ export default function Header() {
         {/* CTA Button */}
         <Link
           href="/contact"
-          className="hidden md:inline-block bg-charcoal text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-charcoal/90 transition-all active:scale-95"
+          className="hidden md:inline-block bg-accent-gold text-charcoal px-6 py-2.5 rounded-full text-sm font-bold hover:bg-accent-gold/90 transition-all active:scale-95"
         >
           Neem contact op
         </Link>
@@ -95,7 +97,7 @@ export default function Header() {
           ))}
           <Link
             href="/contact"
-            className="block mt-2 text-center bg-charcoal text-white px-6 py-2.5 rounded-full text-sm font-bold"
+            className="block mt-2 text-center bg-accent-gold text-charcoal px-6 py-2.5 rounded-full text-sm font-bold"
             onClick={() => setMenuOpen(false)}
           >
             Neem contact op

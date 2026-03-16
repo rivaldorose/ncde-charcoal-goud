@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -11,21 +12,24 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-20 pb-32">
-        <div className="absolute inset-0 geometric-bg pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+      <section className="relative overflow-hidden pt-20 pb-32 min-h-[85vh] flex items-center">
+        {/* Background image */}
+        <Image
+          src="/hero-home.jpg"
+          alt="Nederlandse woning met zonnepanelen"
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-charcoal/60"></div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-accent-gold/10 border border-accent-gold/20 mb-8">
-              <span className="w-2 h-2 rounded-full bg-accent-gold"></span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-accent-gold">
-                Stichting NCDE — Onafhankelijk Advies
-              </span>
-            </div>
-            <h1 className="text-5xl lg:text-7xl font-extrabold text-charcoal leading-[1.1] tracking-tight mb-8">
+            <h1 className="text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] tracking-tight mb-8">
               De toekomst van energie begint met{" "}
               <span className="text-accent-gold italic">kennis</span>
             </h1>
-            <p className="text-xl text-charcoal/70 leading-relaxed mb-10 max-w-2xl">
+            <p className="text-xl text-white/80 leading-relaxed mb-10 max-w-2xl">
               Belangrijke veranderingen voor Nederlandse huishoudens in de
               transitie naar duurzame energie. Wij bieden objectieve kaders voor
               een bestendig energienetwerk.
@@ -113,7 +117,7 @@ export default function HomePage() {
                 nieuwe terugleverkosten door netbeheerders.
               </p>
             </div>
-            <div className="p-8 border-l-4 border-charcoal bg-charcoal text-white rounded-r-xl">
+            <div className="p-8 border-l-4 border-accent-gold bg-charcoal text-white rounded-r-xl">
               <span className="text-sm font-bold text-accent-gold block mb-2">
                 FASE 03 — 2027
               </span>
@@ -248,7 +252,7 @@ export default function HomePage() {
                 omvormers voor netbalans.
               </p>
               <Link
-                href="/oplossingen"
+                href="/oplossingen/zonnepanelen"
                 className="text-accent-gold text-sm font-bold flex items-center gap-1 hover:translate-x-1 transition-transform"
               >
                 Lees meer{" "}
@@ -269,7 +273,7 @@ export default function HomePage() {
                 economische haalbaarheid post-saldering.
               </p>
               <Link
-                href="/oplossingen"
+                href="/oplossingen/thuisbatterijen"
                 className="text-accent-gold text-sm font-bold flex items-center gap-1 hover:translate-x-1 transition-transform"
               >
                 Lees meer{" "}
@@ -290,7 +294,7 @@ export default function HomePage() {
                 uurtarieven en netbelasting.
               </p>
               <Link
-                href="/oplossingen"
+                href="/oplossingen/slimme-energie"
                 className="text-accent-gold text-sm font-bold flex items-center gap-1 hover:translate-x-1 transition-transform"
               >
                 Lees meer{" "}
@@ -303,44 +307,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Logo Cloud */}
-      <section className="py-20 border-y border-charcoal/10 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-charcoal/40 mb-12">
+      {/* Partner Logo Marquee */}
+      <section className="py-16 border-y border-charcoal/10 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center mb-10">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-charcoal/40">
             Onze informatie wordt ondersteund door expertise van
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-12 lg:gap-20 grayscale opacity-40">
-            <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-4xl">
-                grid_view
-              </span>
-              <span className="font-black text-xl tracking-tighter">
-                LIANDER
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-4xl">
-                dynamic_form
-              </span>
-              <span className="font-black text-xl tracking-tighter">
-                STEDIN
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-4xl">
-                settings_input_component
-              </span>
-              <span className="font-black text-xl tracking-tighter">
-                ENEXIS
-              </span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-4xl">
-                account_balance
-              </span>
-              <span className="font-black text-xl tracking-tighter">TNO</span>
-            </div>
+        </div>
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+          <div className="flex animate-marquee w-max">
+            {[...Array(2)].map((_, setIndex) => (
+              <div key={setIndex} className="flex items-center gap-16 px-8">
+                <Image src="/partners/liander.png" alt="Liander" width={120} height={48} className="h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" />
+                <Image src="/partners/stedin.png" alt="Stedin" width={120} height={48} className="h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" />
+                <Image src="/partners/enexis.png" alt="Enexis" width={120} height={48} className="h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" />
+                <Image src="/partners/alliander.png" alt="Alliander" width={120} height={48} className="h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" />
+                <Image src="/partners/tennet.png" alt="TenneT" width={120} height={48} className="h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" />
+                <Image src="/partners/netbeheernl.png" alt="Netbeheer NL" width={120} height={48} className="h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" />
+                <Image src="/partners/rijksoverheid.png" alt="Rijksoverheid" width={120} height={48} className="h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" />
+                <Image src="/partners/rvo.png" alt="RVO" width={120} height={48} className="h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" />
+                <Image src="/partners/alterion.png" alt="Alterion" width={120} height={48} className="h-10 w-auto object-contain grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all" />
+              </div>
+            ))}
           </div>
+        </div>
+        <div className="text-center mt-10">
+          <Link
+            href="/partners"
+            className="inline-flex items-center gap-2 text-accent-gold text-sm font-bold hover:translate-x-1 transition-transform"
+          >
+            Bekijk al onze partners
+            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          </Link>
         </div>
       </section>
 
