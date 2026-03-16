@@ -185,7 +185,7 @@ export default function Footer() {
             alt="RoseVibes Studio"
             width={100}
             height={35}
-            className="h-6 w-auto opacity-40 hover:opacity-70 transition-opacity"
+            className="h-10 w-auto opacity-40 hover:opacity-70 transition-opacity"
           />
         </div>
       </div>
