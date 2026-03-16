@@ -8,6 +8,7 @@ const inter = Inter({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
 const dmSans = DM_Sans({
@@ -29,11 +30,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="nl">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
-        className={`${inter.variable} ${dmSans.variable} antialiased bg-offwhite text-primary`}
+        className={`${inter.variable} ${dmSans.variable} antialiased bg-background-light text-charcoal font-[family-name:var(--font-display)]`}
       >
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>
